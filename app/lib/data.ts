@@ -1,3 +1,6 @@
+const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices`;
+const customerCountPromise = sql`SELECT COUNT(*) FROM customers`;
+
 import { sql } from '@vercel/postgres';
 import {
   CustomerField,
@@ -9,6 +12,7 @@ import {
   Revenue,
 } from './definitions';
 import { formatCurrency } from './utils';
+
 
 export async function fetchRevenue() {
   // Add noStore() here to prevent the response from being cached.
